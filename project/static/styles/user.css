@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	overflow-x: hidden;
+}
+
+header nav div > .navbar-brand {
+	font-size: 24px;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-right: 13vw;
+}
+
+header nav div > .collapse ul li {
+	margin: 0px 25px;
+}
+
+header nav div > .collapse ul li.btn-reg{
+	margin-left: 10vw;
+	margin-right: 5px;
+}
+
+header nav div > .collapse ul li.btn-login{
+	margin-left: 5px;
+}
+
+header nav div > .collapse ul li a:hover {
+	transform: scale(1.1);
+	transition: 1s;
+}
+
+
+.overflow {
+	display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	margin-top: 0;
+	color:#ccc;
+	max-width:100%;
+}
+
+.account-img {
+	max-width: 40%;
+	max-height: auto;
+}
+
+header nav div > .collapse ul li.btn-reg > span a{
+	background-color: gray;
+	font-weight: bold;
+	border: 3px solid black;
+	border-radius: 20px;
+}
+
+header nav div > .collapse ul li.btn-login > a{
+	background-color: gray;
+	font-weight: bold;
+	border: 3px solid black;
+	border-radius: 30px;
+}
+
+#Main > #main-content {
+	background-image: url("/static/images/univ-overview.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 120vh;
+	width: 100%;
+}
+
+#Main > #main-content h2 {
+	position: relative;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	top: 50%;
+}
+
+#Admission > h2 {
+	margin: 0px;
+	padding: 10px;
+	text-align: center;
+	text-decoration: underline;
+	text-decoration-color: red;
+}
+
+#Admission > div > .carousel-inner > .carousel-item > img {
+	width: 100%;
+	height: 100vh;
+}
+
+#Admission .carousel-caption {
+	color: yellow;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+#Admission .carousel-caption > h5 {
+	font-size: 50px;
+}
+
+.Bachelor {
+	background-color: cyan;
+	outline: 5px white;
+	border: 3px solid black;
+	margin: 0.25rem;
+	padding: 30px;
+}
+
+
+.Bachelor > h2 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.Bachelor > p {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+
+.postgraduate {
+	background-color: goldenrod;
+	outline: 5px white;
+	border: 3px solid black;
+	margin: 0.25rem;
+	padding: 30px;
+}
+
+.postgraduate > h2 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.postgraduate > p {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.student-exchange {
+	width: 40%;
+	height: 10%;
+	background-color: lightgreen;
+	outline: 5px white;
+	border: 3px solid black;
+	margin: 0.25rem;
+	padding: 30px;
+}
+
+.student-exchange > h2 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.student-exchange > p {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.Profession {
+	background-color: yellow;
+	outline: 5px white;
+	border: 3px solid black;
+	margin: 0.25rem;
+	padding: 30px;
+}
+
+.Profession > h2 {
+	text-align: center;
+	font-weight: bold;
+}
+
+.Profession > p {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#Facilities > h2 {
+	text-align: center;
+	text-decoration: underline red;
+}
+
+#Facilities > div > .carousel-inner > .carousel-item > img {
+	width: 100%;
+	height: 90vh;
+}
+
+.carousel-caption {
+	color: white;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.carousel-caption > h5 {
+	font-size: 24px;
+}
+
+.carousel-caption > p {
+	font-size: 18px;
+}
+
+#Pricing {
+	text-align: center;
+	height: 55vh;
+}
+
+.pricing-head {
+	background-color: black;
+	color: white;
+}
+
+.pricing-head > h1 {
+	text-decoration: underline red;
+	font-weight: bold;
+	font-size: 28px;
+}
+
+.pricing-desc > .right-grid {
+	background-color: gray;
+	color: white;
+	padding: 20px 0px;
+}
+
+.pricing-desc > .right-grid > ul {
+	list-style-position: inside;
+}
+
+.pricing-desc > .right-grid > ul li {
+	padding: 5px;
+	font-size: 18px;
+}
+
+.pricing-desc > .right-grid > ul li::marker{
+	content: '✓';
+	color: green;
+	font-weight: bold;
+	font-size: 22px;
+	align-content: center;
+}
+
+.pricing-desc > .left-grid {
+	background-color: lightgray;
+	padding: 20px 0px;
+}
+
+.pricing-desc > .left-grid > h2 {
+	padding: 10px 0px;
+}
+
+.pricing-desc > .left-grid > p {
+	font-size: 18px;
+	padding: 5px 0px;
+	opacity: 0.8;
+}
+
+.pricing-desc > .left-grid > p > span {
+	font-size: 30px;
+	opacity: 1.0;
+}
+
+.pricing-desc > .left-grid > a {
+	display: inline-block;
+	text-decoration: none;
+	color: lightgray;
+	background-color: black;
+	font-size: 18px;
+	border: 2px solid black;
+	border-radius: 20px;
+}
+
+.pricing-desc  > .left-grid > a:hover {
+	color: white;
+	transform: scale(1.2);
+	transition: 1s all linear;
+}
+
+footer div div {
+	height: 40vh;
+}
+
+footer div div > .left {
+	background-color: black;
+	color: white;
+}
+
+footer div div > .left h3 {
+	font-weight: bold;
+	font-size: 30px;
+	padding: 10px 0px;
+}
+
+footer div div > .left p {
+	font-style: italic;
+	font-size: 18px
+}
+
+footer div div > .mid {
+	background-color: lightgray;
+}
+
+footer div div > .mid h3 {
+	font-weight: bold;
+	font-size: 30px;
+	padding: 10px 0px;
+}
+
+footer div div > .mid p {
+	font-style: italic;
+	font-size: 18px;
+}
+
+footer div div > .right {
+	color: white;
+	background-color: black;
+}
+
+footer div div > .right h3 {
+	font-weight: bold;
+	font-size: 30px;
+	padding: 10px 0px;
+}
+
+footer div div > .right p {
+	font-style: italic;
+	font-size: 18px;
+}
+
+@media screen and (max-width: 990px) {
+	header nav div > .collapse ul li {
+		margin-left: 5px;
+	}
+
+	header nav div > .collapse ul li.btn-reg {
+		width: 17.5vh;
+		margin: 0px;
+	}
+
+	header nav div > .collapse ul li.btn-login {
+		width: 17.5vh;
+		margin: 0px;
+	}
+
+	header nav div > .collapse ul li.btn-reg a {
+		padding-left: 3px;
+		font-size-adjust: auto;
+	}
+
+	header nav div > .collapse ul li.btn-login a {
+		padding-left: 5px;
+	}
+
+	header nav div > .collapse ul li a:hover {
+		transform: scale(1.005);
+		transition: 1s;
+	}
+}

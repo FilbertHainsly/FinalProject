@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Meta Stuff -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="author" content="Felix & Filbert">
+	<meta name="keywords" content="University, Education, Knowledge">
+	<meta name="google" content="nositelinkssearchbox"/>
+	<meta name="description" content="Oxvard University">
+	<meta name="robots" content="University, Education, Knowledge">
+	<meta name="googlebot" content="University, Education, Knowledge">
+	<meta name="googlebot" content="notranslate">
+	<meta name="rating" content="general"/>
+
+	<!-- Favicon Logo -->
+	<link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+	<!-- Title -->
+	<title>Oxvard University Personal Profile Page</title>
+
+	<!-- CSS and Scripts -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/user.css') }}">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">
+					Oxvard
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbar-content">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('user', username = username) }}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('user', _anchor = 'Admission', username = username) }}">Admission</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('user', _anchor = 'Facilities', username = username) }}">Facilities</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('user', _anchor = 'Pricing', username = username) }}">Pricing</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{ url_for('user', _anchor = 'About-us', username = username) }}">About</a>
+						</li>
+						<li class="nav-item btn-reg">
+							<span class="overflow">
+								<a class="nav-link" href="{{ url_for('profile', username = username) }}">{{ username }}</a>
+							</span>
+						</li>
+						<li class="nav-item btn-login">
+							<a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container-fluid">
+		<div class="update-form text-center">
+			<div class="title">
+				<h1>Editing {{current_user.first_name}} {{current_user.last_name}}'s Profile</h1>
+			</div>
+			<form method="POST" action="" enctype="multipart/form-data">
+				{{ form.hidden_tag() }}
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<tbody>
+							<tr>
+								<td>
+									{{ form.image_file.label(class = 'form-control-label') }}
+								</td>
+								<td>
+									{{ form.image_file(class = 'form-control-file') }}
+
+									{% if form.image_file.errors %}
+
+										{% for error in form.image_file.errors %}
+
+											<span class="text-danger">{{error}}</span>
+
+										{% endfor %}
+
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.first_name.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.first_name.errors %}
+							
+										{{ form.first_name(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.first_name.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.first_name(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.last_name.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.last_name.errors %}
+							
+										{{ form.last_name(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.last_name.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.last_name(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.birth_date.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.birth_date.errors %}
+							
+										{{ form.birth_date(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.birth_date.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.birth_date(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.age.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.age.errors %}
+							
+										{{ form.age(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.age.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.age(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.gender.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.gender.errors %}
+							
+										<div class="radio_container text-center">
+											{% for choices in form.gender %}
+												<div class="form-check form-check-inline">	
+													{{ choices(class="form-check-input is-invalid") }}
+													{{ choices.label(class="form-check-label") }}
+												</div>
+											{% endfor %}
+										</div>
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.gender.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										<div class="radio_container text-center">
+											{% for choices in form.gender %}
+												<div class="form-check form-check-inline">	
+													{{ choices(class="form-check-input") }}
+													{{ choices.label(class="form-check-label") }}
+												</div>
+											{% endfor %}
+										</div>
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.email.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.email.errors %}
+							
+										{{ form.email(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.email.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.email(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.phone.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.phone.errors %}
+							
+										{{ form.phone(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.phone.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.phone(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.city.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.city.errors %}
+							
+										{{ form.city(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.city.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.city(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									{{ form.country.label(class='form-control-label') }}
+								</td>
+								<td>
+									{% if form.country.errors %}
+							
+										{{ form.country(class="form-control is-invalid") }}
+
+										<div class="invalid-feedback">
+											
+											{% for error in form.country.errors %}
+
+												<span>{{ error }}</span>
+
+											{% endfor %}
+
+										</div>
+
+									{% else %}
+										{{ form.country(class='form-control') }}
+									{% endif %}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="form-group">
+						{{ form.submit(class="btn btn-outline-info") }}
+					</div>	
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
